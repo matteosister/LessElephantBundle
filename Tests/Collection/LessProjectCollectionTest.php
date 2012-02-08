@@ -19,8 +19,6 @@ class CompassProjectCollectionTest extends \PHPUnit_Framework_TestCase
         $binary = new LessBinary();
         $tmpFolder1 = $this->getTempPathName();
         $tmpFolder2 = $this->getTempPathName();
-        mkdir($tmpFolder1);
-        mkdir($tmpFolder2);
         mkdir($tmpFolder1.DIRECTORY_SEPARATOR.'less');
         mkdir($tmpFolder1.DIRECTORY_SEPARATOR.'css');
         mkdir($tmpFolder2.DIRECTORY_SEPARATOR.'less');
