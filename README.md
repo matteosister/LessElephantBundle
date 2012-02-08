@@ -52,16 +52,26 @@ Configuration
 
 ```
 cypress_less_elephant:
+    less_binary_path: "/usr/local/bin/lessc"
     less_projects:
-        my-less-project:
-            path: %kernel.root_dir%/../src/Cypress/DemoBundle/Resources/public/less
+        my-first-project:
+            source_folder: %kernel.root_dir%/../src/Cypress/DemoBundle/Resources/public/bootstrap/less
+            source_file: bootstrap.less
+            destination_css: %kernel.root_dir%/../src/Cypress/DemoBundle/Resources/public/bootstrap/css/bootstrap.css
+        another-project:
+            .....
 ```
 
-*my-less-project* is a random name for this example. Pick the name you want
+**less_binary_path** (optional) is the path to your lessc binary. LessElephant try to find it with "which lessc". So, if you are on windows, you need this
 
-*Important*
+**less_projects** (at least 1) define an entry for each of your less projects. All three parameters are mandatory
 
-Remember that the apache user needs write access to the "sass" folder, the "stylesheet" folder and the config.rb file. If you use compass defaults you will have everything inside the same project folder. You can give permission to all files inside. But you can as well change the position of the stylesheets folder to be outside the project. CompassElephant parses the config file and uses it, just remember to set the right permissions on the folders you define inside compass config file.
+- *source_folder* the folder where all your less files resides
+
+- *source_file* the main less file. Usually this is a file that contains many *@import* directive
+
+- *destination_css* the destination css. **This file needs to be writable by web server user** (for example on linux *www-data*)
+
 
 **Add the stylesheets to your templates**
 
@@ -69,7 +79,7 @@ Remember that the apache user needs write access to the "sass" folder, the "styl
 
 ```
 {% stylesheets filter="yui_css"
-    "@CypressDemoBundle/Resources/public/compass/stylesheets/screen.css" %}
+    "@CypressDemoBundle/Resources/public/bootstrap/css/bootstrap.css" %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
 {% endstylesheets %}
 ```
@@ -77,38 +87,16 @@ Remember that the apache user needs write access to the "sass" folder, the "styl
 *without assetic*
 
 ```
-<link href="{{ asset('bundles/cypressdemo/compass/stylesheets/screen.css') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/cypressdemo/bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
 ```
 
 Enjoy!
-
-Complete configuration reference
---------------------------------
-
-```
-cypress_compass_elephant:
-    compass_binary_path: "/usr/local/bin/compass"
-    compass_projects:
-        blog:
-            path: %kernel.root_dir%/../src/Cypress/BlogBundle/Resources/public/compass
-            staleness_checker: finder # or native
-            config_file: config.rb
-            auto_init: true
-```
-
-* *compass_binary_path* is useful to force a binary that is not the default one that "which compass" gets.
-* *compass_projects* is a collection of all the compass projects in your symfony project (maybe one for application)
-* *staleness_checker* define what strategy the bundle use to define if a project is "clean" or needs recompile. "finder" is the default one, and you should use it. Read the [CompassElephant readme file](https://github.com/matteosister/CompassElephant) for more on this
-* *config_file* is the name of te config file for compass. Defaults to config.rb, the standard one
-* *auto_init* if set to false disable the init feature on an empty folder. Defaults to true
 
 How it works
 ------------
 
 This bundle register an event listener that, on every request, check if the projects defined in the config_dev.yml files are in "clean" state or needs recompile.
 
-If the project do not need to be recompiled, it adds a really small overhead to symfony. At least with the finder staleness_checker option, just the time to check a bunch of files.
+If the project do not need to be recompiled, it adds a really small overhead to symfony, just the time to check a bunch of files.
 
-If you use native implementation it's really slow. So use it only if for some reason you can't use the finder component
-
-Read the [CompassElephant readme](https://github.com/matteosister/CompassElephant) for other useful informations
+Read the [LessElephant readme](https://github.com/matteosister/LessElephant) for other useful informations
