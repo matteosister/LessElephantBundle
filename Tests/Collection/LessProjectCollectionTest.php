@@ -29,7 +29,7 @@ class CompassProjectCollectionTest extends \PHPUnit_Framework_TestCase
                 'source_file' => 'screen.less',
                 'destination_css' => $tmpFolder1.DIRECTORY_SEPARATOR.'css/screen.css',
             ),
-            'test' => array(
+            'test2' => array(
                 'source_folder' => $tmpFolder2.DIRECTORY_SEPARATOR.'less',
                 'source_file' => 'screen.less',
                 'destination_css' => $tmpFolder2.DIRECTORY_SEPARATOR.'css/screen.css',
