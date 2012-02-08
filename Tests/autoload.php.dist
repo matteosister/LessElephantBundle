@@ -16,7 +16,7 @@ use Symfony\Component\ClassLoader\UniversalClassLoader;
 $loader = new UniversalClassLoader();
 $loader->registerNamespaces(array(
     'Symfony'                => array($vendorDir.'/symfony/src', $vendorDir.'/bundles'),
-    'CompassElephant'       => $vendorDir.'/compass-elephant/src',
+    'LessElephant'           => $vendorDir.'/less-elephant/src',
 ));
 $loader->register();
 

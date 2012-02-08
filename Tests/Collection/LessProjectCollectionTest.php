@@ -7,54 +7,36 @@
  * Just for fun...
  */
 
-namespace Cypress\CompassElephantBundle\Tests\Collection;
+namespace Cypress\LessElephantBundle\Tests\Collection;
 
-use Cypress\CompassElephantBundle\Collection\CompassProjectCollection,
-    CompassElephant\CompassBinary;
+use Cypress\LessElephantBundle\Collection\LessProjectCollection,
+    LessElephant\LessBinary;
 
 class CompassProjectCollectionTest extends \PHPUnit_Framework_TestCase
 {
     public function testConstructor()
     {
-
-        $binary = new CompassBinary();
+        $binary = new LessBinary();
+        $tmpFolder1 = $this->getTempPathName();
+        $tmpFolder2 = $this->getTempPathName();
         $projects = array(
             'test' => array(
-                'path' => $this->getTempPathName(),
-                'staleness_checker' => 'finder',
-                'config_file' => 'config.rb',
-                'auto_init' => true
+                'source_folder' => $tmpFolder1.DIRECTORY_SEPARATOR.'less',
+                'source_file' => 'screen.less',
+                'destination_css' => $tmpFolder1.DIRECTORY_SEPARATOR.'css/screen.css',
             ),
-            'test2' => array(
-                'path' => $this->getTempPathName(),
-                'staleness_checker' => 'finder',
-                'config_file' => 'config.rb',
-                'auto_init' => true
-            )
+            'test' => array(
+                'source_folder' => $tmpFolder2.DIRECTORY_SEPARATOR.'less',
+                'source_file' => 'screen.less',
+                'destination_css' => $tmpFolder2.DIRECTORY_SEPARATOR.'css/screen.css',
+            ),
         );
-        $coll = new CompassProjectCollection($binary, $projects);
+        $coll = new LessProjectCollection($binary, $projects);
 
         $this->assertCount(2, $coll);
         $this->assertInstanceOf('ArrayAccess', $coll);
         $this->assertInstanceOf('Iterator', $coll);
         $this->assertInstanceOf('Countable', $coll);
-    }
-
-    /**
-     * @expectedException InvalidArgumentException
-     */
-    public function testWrongStalenessChecker()
-    {
-        $binary = new CompassBinary();
-        $projects = array(
-            'test' => array(
-                'path' => $this->getTempPathName(),
-                'staleness_checker' => 'finders',
-                'config_file' => 'config.rb',
-                'auto_init' => false
-            )
-        );
-        $coll = new CompassProjectCollection($binary, $projects);
     }
 
     private function getTempPathName()

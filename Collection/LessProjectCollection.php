@@ -24,7 +24,7 @@ class LessProjectCollection implements \ArrayAccess, \Iterator, \Countable
      * class constructor
      *
      * @param \LessElephant\LessBinary $binary   a LessBinary instance
-     * @param                          $projects an array of projects configuration
+     * @param array                    $projects an array of projects configuration
      */
     public function __construct(LessBinary $binary, $projects)
     {
