@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="cypress_less_elephant.binary.class">LessElephant\LessBinary</parameter>
+        <parameter key="cypress_less_elephant.project_collection.class">Cypress\LessElephantBundle\Collection\LessProjectCollection</parameter>
+        <parameter key="cypress_less_elephant.listener.class">Cypress\LessElephantBundle\Listener\CypressLessRequestListener</parameter>
+    </parameters>
+
+    <services>
+        <service id="cypress_less_elephant.less_binary"
+                 class="%cypress_less_elephant.binary.class%"
+                 public="false">
+            <argument>%cypress_less_elephant.less_binary_path%</argument>
+        </service>
+
+        <service id="cypress_less_elephant.project_collection" class="%cypress_less_elephant.project_collection.class%">
+            <argument type="service" id="cypress_less_elephant.less_binary" />
+            <argument>%cypress_less_elephant.less_projects%</argument>
+        </service>
+
+        <service id="cypress_less_elephant.listener"
+                 class="%cypress_less_elephant.listener.class%">
+            <tag name="kernel.event_listener" event="kernel.request" method="updateLess" />
+            <argument type="service" id="cypress_less_elephant.project_collection" />
+        </service>
+    </services>
+</container>

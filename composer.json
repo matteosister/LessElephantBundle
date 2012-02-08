@@ -1,0 +1,24 @@
+{
+    "name": "cypresslab/less-elephant-bundle",
+    "description": "Integrates LessElephant into Symfony2",
+    "keywords": ["less", "css", "assets"],
+    "homepage": "https://github.com/matteosister/LessElephantBundle",
+    "type": "symfony-bundle",
+    "license": "GPL3",
+    "authors": [
+        {
+            "name": "Matteo Giachino",
+            "email": "matteog@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "cypresslab/less-elephant": ">=0.1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Cypress\\LessElephantBundle": ""
+        }
+    },
+    "target-dir": "Cypress/LessElephantBundle"
+}
