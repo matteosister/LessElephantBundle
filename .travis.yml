@@ -9,7 +9,7 @@ branches:
     - develop
 
 env:
-  - SYMFONY_VERSION=v2.0.9
+  - SYMFONY_VERSION=v2.0.10
   - SYMFONY_VERSION=origin/master
 
 
