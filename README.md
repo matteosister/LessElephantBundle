@@ -2,7 +2,7 @@
 
 A Bundle to use the [LessElephant](https://github.com/matteosister/LessElephant) library in a Symfony2 project.
 
-This bundle scans your [less projects](http://lesscss.org/) on every request, and checks if they needs to be recompiled. It takes care of dependencies, so you can use less with **@import** without problems. So no javascript or manual excution of **lessc** is needed
+This bundle scans your [less projects](http://lesscss.org/) on every request, and checks if they needs to be recompiled. It takes care of dependencies, so you can use less with **@import** without problems. You don't need javascript or manual excution of **lessc** anymore
 
 Installation
 ------------
