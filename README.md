@@ -41,7 +41,7 @@ Register the bundle in the **AppKernel.php** file inside the dev section
 <?php
 if (in_array($this->getEnvironment(), array('dev', 'test'))) {
     // ...other bundles ...
-    $bundles[] = new Cypress\LesssElephantBundle\CypressLessElephantBundle();
+    $bundles[] = new Cypress\LessElephantBundle\CypressLessElephantBundle();
 }
 ```
 
@@ -91,6 +91,23 @@ cypress_less_elephant:
 ```
 <link href="{{ asset('bundles/cypressdemo/bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
 ```
+
+If you want to differentiate the way to create the css depending on the environment, we can include the following conditional on the template:
+```
+{% if app.environment == 'dev' %}
+    {% stylesheets filter='yui_css'
+        "@CypressDemoBundle/Resources/public/bootstrap/css/bootstrap.css" %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
+{% else %}
+    {% stylesheets filter='cssrewrite,less,?yui_css'
+        'css/less/site.less'
+        output='css/compiled/main.css' %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
+{% endif %}
+```
+
 
 Enjoy!
 
