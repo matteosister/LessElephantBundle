@@ -93,6 +93,7 @@ cypress_less_elephant:
 ```
 
 If you want to differentiate the way to create the css depending on the environment, we can include the following conditional on the template:
+
 ```
 {% if app.environment == 'dev' %}
     {% stylesheets filter='yui_css'
