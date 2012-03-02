@@ -86,12 +86,6 @@ cypress_less_elephant:
 {% endstylesheets %}
 ```
 
-*without assetic*
-
-```
-<link href="{{ asset('bundles/cypressdemo/bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
-```
-
 If you want to differentiate the way to create the css depending on the environment, we can include the following conditional on the template:
 
 ```
@@ -107,6 +101,12 @@ If you want to differentiate the way to create the css depending on the environm
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
     {% endstylesheets %}
 {% endif %}
+```
+
+*without assetic*
+
+```
+<link href="{{ asset('bundles/cypressdemo/bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
 ```
 
 
