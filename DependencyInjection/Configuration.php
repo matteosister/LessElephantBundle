@@ -38,6 +38,7 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
                 ->scalarNode('less_binary_path')->defaultValue(null)->end()
+                ->scalarNode('force_compile')->defaultValue(false)->end()
             ->end()
         ;
 

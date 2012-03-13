@@ -24,6 +24,7 @@ class CypressLessElephantExtension extends Extension
 
         $container->setParameter('cypress_less_elephant.less_binary_path', $config['less_binary_path']);
         $container->setParameter('cypress_less_elephant.less_projects', $config['less_projects']);
+        $container->setParameter('cypress_less_elephant.force_compile', $config['force_compile']);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
