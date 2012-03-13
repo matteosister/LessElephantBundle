@@ -62,7 +62,7 @@ cypress_less_elephant:
             destination_css: %kernel.root_dir%/../src/Cypress/DemoBundle/Resources/public/bootstrap/css/bootstrap.css
         another-project:
             .....
-    force_compile: false # true for compile always
+    force_compile: ~
 ```
 
 **less_binary_path** (optional) is the path to your lessc binary. LessElephant try to find it with "which lessc". So, if you are on windows, you need this
@@ -75,6 +75,7 @@ cypress_less_elephant:
 
 - *destination_css* the destination css. **This file needs to be writable by web server user** (for example on linux *www-data*)
 
+**force_compile** (optional) default: false. If it is true, we force the compilation for each request.
 
 **Add the stylesheets to your templates**
 
