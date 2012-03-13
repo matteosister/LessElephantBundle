@@ -26,6 +26,7 @@
                  class="%cypress_less_elephant.listener.class%">
             <tag name="kernel.event_listener" event="kernel.request" method="updateLess" />
             <argument type="service" id="cypress_less_elephant.project_collection" />
+            <argument>%cypress_less_elephant.force_compile%</argument>
         </service>
     </services>
 </container>
