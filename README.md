@@ -62,6 +62,7 @@ cypress_less_elephant:
             destination_css: %kernel.root_dir%/../src/Cypress/DemoBundle/Resources/public/bootstrap/css/bootstrap.css
         another-project:
             .....
+    force_compile: false # true for compile always
 ```
 
 **less_binary_path** (optional) is the path to your lessc binary. LessElephant try to find it with "which lessc". So, if you are on windows, you need this
