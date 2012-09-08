@@ -12,7 +12,7 @@ Installation
 Add the bundle to your *composer.json* file
 
 ```json
-require: {
+"require": {
 	"cypresslab/less-elephant-bundle": "dev-master"
 }
 ```
