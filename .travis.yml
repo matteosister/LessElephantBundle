@@ -9,8 +9,8 @@ branches:
     - develop
 
 env:
-  - SYMFONY_VERSION=v2.0.10
-  - SYMFONY_VERSION=origin/master
+  - SYMFONY_VERSION=v2.0.17
+  - SYMFONY_VERSION=v2.1.0
 
 
 before_script: php vendor/vendors.php
