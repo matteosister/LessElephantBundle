@@ -7,6 +7,24 @@ This bundle scans your [less projects](http://lesscss.org/) on every request, an
 Installation
 ------------
 
+**composer**
+
+Add the bundle to your *composer.json* file
+
+```json
+require: {
+	"cypresslab/less-elephant-bundle": "dev-master"
+}
+```
+
+and
+
+```bash
+$ php composer.phar install
+```
+
+composer will take care of intalling the LessElephant library for you.
+
 **deps file**
 
 Add the bundle and the CompassElephant library to the deps file inside the root of your symfony project
