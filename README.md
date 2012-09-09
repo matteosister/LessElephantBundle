@@ -12,8 +12,10 @@ Installation
 Add the bundle to your *composer.json* file
 
 ```json
-"require": {
-	"cypresslab/less-elephant-bundle": "dev-master"
+{
+	"require": {
+		"cypresslab/less-elephant-bundle": "dev-master"
+	}
 }
 ```
 
@@ -99,7 +101,7 @@ cypress_less_elephant:
 
 *assetic*
 
-```
+```html+jinja
 {% stylesheets filter="yui_css"
     "@CypressDemoBundle/Resources/public/bootstrap/css/bootstrap.css" %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
@@ -108,7 +110,7 @@ cypress_less_elephant:
 
 If you want to differentiate the way to create the css depending on the environment, we can include the following conditional on the template:
 
-```
+```html+jinja
 {% if app.environment == 'dev' %}
     {% stylesheets filter='yui_css'
         "@CypressDemoBundle/Resources/public/bootstrap/css/bootstrap.css" %}
@@ -125,7 +127,7 @@ If you want to differentiate the way to create the css depending on the environm
 
 *without assetic*
 
-```
+```html+jinja
 <link href="{{ asset('bundles/cypressdemo/bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
 ```
 
