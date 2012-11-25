@@ -3,7 +3,7 @@ Integrating bootstrap in your project
 
 * follow the [installation instructions](https://github.com/matteosister/LessElephantBundle/blob/master/Resources/docs/installation.md)
 
-* download bootstrap. I suggest to install it as a git submodule (if you want to modify something, and keep the upstream updates) or download as a zipball. Put it in your project, let's say app/bootstrap folder
+* download bootstrap. I suggest to install it as a git submodule (if you want to modify something, and keep the upstream updates) or download as a zipball. Put it in your project, let's say **app/bootstrap** folder
 
 * in your config.yml file, add this configuration
 
@@ -48,32 +48,34 @@ Now you have bootstrap recompiled every time you make a change in the less code.
 
 You can change some variables in *variables.less*, create new files to add custom style or even add a [bootswatch theme](http://bootswatch.com/)
 
-And if you used a git submodule, you can have a fork, keep the upstream changes and merge them with your customization.
+And if you used a git submodule, you can have a fork, keep the upstream changes and merge them with your customizations.
 
 If you want bootstrap as it is, just add the repository to your composer file (assuming you want the 2.2.1 version), and require it:
 
 ```json
-"require": {
-    "twitter/bootstrap": "2.2.1"
-},
-"repositories": [
-    {
-       "type": "package",
-       "package": {
-           "version": "2.2.1",
-           "name": "twitter/bootstrap",
-           "source": {
-	           "url": "https://github.com/twitter/bootstrap.git",
-	           "type": "git",
-	           "reference": "v2.2.1"
-           },
-           "dist": {
-	           "url": "https://github.com/twitter/bootstrap/zipball/v2.2.1",
-	           "type": "zip"
+{
+    "require": {
+        "twitter/bootstrap": "2.2.1"
+    },
+    "repositories": [
+        {
+           "type": "package",
+           "package": {
+               "version": "2.2.1",
+               "name": "twitter/bootstrap",
+               "source": {
+	               "url": "https://github.com/twitter/bootstrap.git",
+	               "type": "git",
+	               "reference": "v2.2.1"
+               },
+               "dist": {
+	               "url": "https://github.com/twitter/bootstrap/zipball/v2.2.1",
+	               "type": "zip"
+               }
            }
-       }
-    }
-]
+        }
+    ]
+}
 ```
 
 obviusly you should change your config file to point to the bootstrap.less file in the vendor dir
