@@ -4,66 +4,9 @@ A Bundle to use the [LessElephant](https://github.com/matteosister/LessElephant)
 
 This bundle scans your [less projects](http://lesscss.org/) on every request, and checks if they needs to be recompiled. It takes care of dependencies, so you can use less with **@import** without problems. You don't need javascript or manual excution of **lessc** anymore
 
-Installation
-------------
+[Installation](https://github.com/matteosister/LessElephantBundle/blob/master/Resources/docs/installation.md)
 
-**composer**
-
-Add the bundle to your *composer.json* file
-
-```json
-{
-	"require": {
-		"cypresslab/less-elephant-bundle": "dev-master"
-	}
-}
-```
-
-and
-
-```bash
-$ php composer.phar install
-```
-
-composer will take care of intalling the LessElephant library for you.
-
-**deps file**
-
-Add the bundle and the CompassElephant library to the deps file inside the root of your symfony project
-
-```
-[less-elephant]
-    git=https://github.com/matteosister/LessElephant.git
-
-[CompassElephantBundle]
-    git=https://github.com/matteosister/LessElephantBundle.git
-    target=/bundles/Cypress/LessElephantBundle
-```
-
-Autoload
-
-*app/autoload.php*
-
-``` php
-<?php
-$loader->registerNamespaces(array(
-    // ... other namespaces ...
-    'Cypress'          => __DIR__.'/../vendor/bundles',
-    'LessElephant'     => __DIR__.'/../vendor/less-elephant/src'
-));
-```
-
-Register the bundle in the **AppKernel.php** file inside the dev section
-
-*app/AppKernel.php*
-
-``` php
-<?php
-if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-    // ...other bundles ...
-    $bundles[] = new Cypress\LessElephantBundle\CypressLessElephantBundle();
-}
-```
+[Integrate bootstrap in Symfony2 and compile less on the fly](https://github.com/matteosister/LessElephantBundle/blob/master/Resources/docs/bootstrap.md)
 
 Configuration
 -------------
@@ -130,7 +73,6 @@ If you want to differentiate the way to create the css depending on the environm
 ```html+jinja
 <link href="{{ asset('bundles/cypressdemo/bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
 ```
-
 
 Enjoy!
 
