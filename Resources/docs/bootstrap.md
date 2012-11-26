@@ -78,7 +78,7 @@ If you want bootstrap as it is, just add the repository to your composer file (a
 }
 ```
 
-obviusly you should change your config file to point to the bootstrap.less file in the vendor dir
+obviously you should change your config file to point to the bootstrap.less file in the vendor dir
 
 ```yaml
 cypress_less_elephant:
