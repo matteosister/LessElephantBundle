@@ -31,7 +31,7 @@ by now we leave **force_compile** on, so we are sure that the project is compile
 
 * refresh your browser and you have bootstrap! (if at this point you got some permission problems, be sure that the bootstrap less folder and the destination folder are writable by you and the web server user, follow the [symfony2 docs](http://symfony.com/doc/current/book/installation.html#configuration-and-setup))
 
-* **turn of the force_compile option**, or the performance will be a big problem!
+* **turn off the force_compile option**, or the performance will be a big problem!
 
 ```yaml
 cypress_less_elephant:
