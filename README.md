@@ -51,23 +51,6 @@ cypress_less_elephant:
 {% endstylesheets %}
 ```
 
-If you want to differentiate the way to create the css depending on the environment, we can include the following conditional on the template:
-
-```html+jinja
-{% if app.environment == 'dev' %}
-    {% stylesheets filter='yui_css'
-        "@CypressDemoBundle/Resources/public/bootstrap/css/bootstrap.css" %}
-        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
-    {% endstylesheets %}
-{% else %}
-    {% stylesheets filter='cssrewrite,less,?yui_css'
-        'css/less/site.less'
-        output='css/compiled/main.css' %}
-        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
-    {% endstylesheets %}
-{% endif %}
-```
-
 *without assetic*
 
 ```html+jinja
